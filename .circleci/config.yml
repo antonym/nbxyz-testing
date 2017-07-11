@@ -1,0 +1,18 @@
+version: 2.0
+
+jobs:
+  build:
+    docker:
+      - image: resin:armv7hf-debian
+        environment:
+          - ENV: CI
+
+    steps:
+     - run: |
+         apt-get -qq update
+         apt install -y git binutils-dev genisoimage liblzma-dev syslinux
+     - checkout
+     - run: |
+         git clone https://github.com/ipxe/ipxe.git ipxe
+         cd ipxe
+         make bin-arm64-efi/ipxe.efi
