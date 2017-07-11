@@ -3,7 +3,7 @@ version: 2.0
 jobs:
   build:
     docker:
-      - image: resin:armv7hf-debian
+      - image: resin/armv7hf-debian:latest
         environment:
           - ENV: CI
     working_directory: ~/
