@@ -6,7 +6,7 @@ jobs:
       - image: resin:armv7hf-debian
         environment:
           - ENV: CI
-
+    working_directory: ~/
     steps:
      - run: |
          apt-get -qq update
